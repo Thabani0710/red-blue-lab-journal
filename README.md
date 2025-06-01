@@ -6,15 +6,6 @@ It has since evolved into a broader, hands-on portfolio focused on **adversary e
 Detection logic is implemented using tools like **Splunk (SPL)** and **Microsoft Sentinel (KQL)**, with scenarios designed to reflect real-world TTPs.
 
 
----
-
-## About Me
-
-I'm a Senior Network Engineer with over 9 years of experience managing enterprise networks and firewalls (Fortinet, Cisco ASA, Palo Alto, Azure Firewall).  
-Certified in **AZ-700**, **SC-200**, **SC-900**, and **BTL1**, I’m currently transitioning into full-time cybersecurity — with a growing focus on detection engineering and threat emulation.
-
----
-
 ## Scenarios
 
 | Scenario                          | Red Team                          | Blue Team Detection |
