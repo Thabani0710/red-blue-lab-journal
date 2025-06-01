@@ -1,0 +1,23 @@
+# Ignore compiled files and executables
+*.exe
+*.dll
+*.pyc
+__pycache__/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log and dump files
+*.log
+*.dmp
+
+# Ignore temporary editor/project files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore backups or sensitive environment files
+.env
+*.bak
