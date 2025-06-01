@@ -30,3 +30,10 @@ Detect the execution of a reverse TCP shell using Sysmon logs and Splunk queries
 ```spl
 index=sysmon EventCode=3
 | stats count by Image, DestinationIp, DestinationPort
+````
+
+### Focused on Port 4444
+```spl
+index=sysmon EventCode=3 DestinationPort=4444
+| stats count by Image, DestinationIp
+````
