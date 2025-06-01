@@ -1,0 +1,8 @@
+Final Detection Query based on our environment
+
+index=sysmon (Image="*\\powershell.exe" OR Image="*\\cmd.exe")
+| eval parent=ProcessId
+| join parent [ search index=sysmon EventCode=1 | table ParentImage, ProcessId ]
+| search ParentImage="*\\explorer.exe"
+| table _time, Image, CommandLine, DestinationIp, DestinationPort
+
