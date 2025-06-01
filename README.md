@@ -1,6 +1,10 @@
-# JustHacking – ConDef Lab Journey
+# Adversary Emulation & Detection Engineering Lab Series
 
-This repository documents a series of hands-on red and blue team exercises inspired by and adapted from the *JustHacking – ConDef* course. It aims to showcase full attack-detection-response lifecycles, with detection logic implemented in **Splunk (SPL)** and **Microsoft Sentinel (KQL)**.
+This repository began as a collection of red and blue team lab scenarios inspired by and adapted from the *JustHacking – ConDef* course.  
+It has since evolved into a broader, hands-on portfolio focused on **adversary emulation**, **detection engineering**, and the **full attack-detection-response lifecycle**.
+
+Detection logic is implemented using tools like **Splunk (SPL)** and **Microsoft Sentinel (KQL)**, with scenarios designed to reflect real-world TTPs.
+
 
 ---
 
