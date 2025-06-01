@@ -1,0 +1,10 @@
+// Reverse TCP Shell detection via PowerShell from GUI context
+
+DeviceNetworkEvents
+| where RemotePort == 4444 and InitiatingProcessFileName has "powershell.exe"
+| join kind=inner (
+    DeviceProcessEvents
+    | where InitiatingProcessParentFileName has "explorer.exe"
+    | project ParentProcessId = ProcessId, DeviceName
+) on $left.InitiatingProcessId == $right.ParentProcessId
+| project Timestamp, DeviceName, InitiatingProcessCommandLine, RemoteIP, RemotePort
