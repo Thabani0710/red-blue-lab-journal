@@ -71,8 +71,9 @@ shell
 
 ## MITRE ATT&CK Mapping
 
-| Technique	           |  ID           |
-| -------------------- | ------------- |
-| PowerShell Execution |  T1059.001    |
-| Obfuscation          |  T1027        |
-| Common Ports         |  T1043        |
+| Technique	             |  ID           |
+| ---------------------- | ------------- |
+| PowerShell Execution   |  T1059.001    |
+| Ingress Tool Transfer  |  T1105        |
+| User Execution         |  T1204.002    |
+| Common Ports           |  T1043        |
