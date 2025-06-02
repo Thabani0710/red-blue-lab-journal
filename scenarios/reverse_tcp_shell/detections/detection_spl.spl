@@ -1,8 +1,12 @@
 Final Detection Query based on our environment
 
-index=sysmon (Image="*\\powershell.exe" OR Image="*\\cmd.exe")
-| eval parent=ProcessId
-| join parent [ search index=sysmon EventCode=1 | table ParentImage, ProcessId ]
-| search ParentImage="*\\explorer.exe"
-| table _time, Image, CommandLine, DestinationIp, DestinationPort
+index=sysmon EventCode=1 host="WIN11V" 
+| rex field=ParentImage "\x5c(?<ParentName>[^\x5c]+)$"
+| rex field=Image "\x5c(?<ProcessName>[^\x5c]+)$"
+| eval parent = ParentName." (".ParentProcessId.")"
+| eval child = ProcessName." (".ProcessId.")"
+| eval detail=strftime(_time,"%Y-%m-%d %H:%M:%S")." ".CommandLine
+| pstree child=child parent=parent detail=detail spaces=50
+| search tree=*whoami*
+| table tree
 
