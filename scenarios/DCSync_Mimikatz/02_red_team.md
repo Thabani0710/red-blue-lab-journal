@@ -12,7 +12,7 @@
 - Valid domain user credentials with **replication privileges**
     - Domain Admin
     - Enterprise Admin
-    - Or any user with `Replicating Directory Changes` & `Replicating Directory Changes All` permissions
+    - Or any user with `Replicating Directory Changes` , `Replicating Directory Changes All` & `DS-Replication-Get-Changes-In-Filtered-Set` permissions
 
 ---
 
