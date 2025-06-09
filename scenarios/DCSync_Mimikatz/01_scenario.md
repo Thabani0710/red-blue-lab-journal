@@ -6,23 +6,37 @@
 
 ## Background
 
-In an Active Directory (AD) environment, domain controllers replicate data (including password hashes) using the Directory Replication Service Remote Protocol (MS-DRSR). This allows domain controllers to stay synchronized.
+In an Active Directory (AD) environment, domain controllers replicate data (including password hashes) using the Directory Replication Service Remote Protocol (MS-DRSR). This allows domain controllers to stay synchronized and up to date.
 
-Attackers can exploit this by impersonating a domain controller and requesting replication data using the `DCSync` feature in tools like **Mimikatz**.
+Attackers can abuse this process using the `DCSync` feature in tools like **Mimikatz**, which allows them to impersonate a domain controller and request replication data, including sensitive credential material.
 
 ---
 
-## Why This Matters
+## Post-Exploitation Context
 
-The DCSync attack lets an attacker:
-- Dump password hashes for **krbtgt**, **Domain Admins**, or **any user**
-- Bypass traditional LSASS memory scraping
-- Maintain persistence by using the krbtgt hash (Golden Ticket attacks)
+DCSync is a **post-exploitation attack**. It requires that the attacker has already obtained **valid credentials** for a privileged account — typically a **Domain Admin**, **Enterprise Admin**, or an account with **replication rights**.
+
+With access to this level of privilege, the attacker can extract password hashes for high-value accounts, such as:
+
+- `krbtgt` (used to sign Kerberos tickets)
+- `Administrator`
+- Any domain user
+
+---
+
+## Impact
+
+One of the most dangerous follow-on actions from a successful DCSync attack is the ability to craft **Golden Tickets** using the stolen `krbtgt` hash.
+
+Golden Tickets enable:
+- **Full domain compromise**
+- **Impersonation of any user**
+- **Unlimited persistence** (until the `krbtgt` password is changed twice)
 
 ---
 
 ## MITRE ATT&CK Technique
 
-- **Technique ID:** T1003.006
-- **Technique:** OS Credential Dumping: DCSync
+- **Technique ID:** T1003.006  
+- **Technique:** OS Credential Dumping: DCSync  
 - **Tactic:** Credential Access
