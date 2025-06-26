@@ -11,7 +11,8 @@ Detection logic is implemented using tools like **Splunk (SPL)** and **Microsoft
 | Scenario                          | Red Team                          | Blue Team Detection |
 |----------------------------------|-----------------------------------|---------------------|
 | [Reverse TCP Shell](./scenarios/reverse_tcp_shell) | Payload via Metasploit + PowerShell | Sysmon + SPL/KQL     |
-| [Kerberoasting Impacket](./scenarios/kerberoasting_impacket) | Keberoasting via Impacket | Sysmon + SPL/KQL 
+| [Kerberoasting Impacket](./scenarios/kerberoasting_impacket) | Keberoasting via Impacket | Sysmon + SPL/KQL     |
+| [DCSync_Impacket](./scenarios/DCSync_Mimikatz) | Keberoasting via Impacket | Sysmon + SPL/KQL     |
 
 ---
 
